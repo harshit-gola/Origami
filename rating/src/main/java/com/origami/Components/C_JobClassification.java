@@ -75,7 +75,7 @@ public class C_JobClassification {
             }
         }
         try {
-            FileOutputStream out = new FileOutputStream(new File("C:/Users/hagola/Documents/Origami/rating/src/data/KS State/Output/"+ Constants.CURRENT_STATE +"Job Classification Rate.xlsx"));
+            FileOutputStream out = new FileOutputStream(new File("C:/Users/hagola/Documents/Origami/rating/src/data/States/Output/"+ Constants.CURRENT_STATE +"Job Classification Rate.xlsx"));
             workbook.write(out);
             System.out.println("Job Classification Excel Generated...");
             out.close();

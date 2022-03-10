@@ -12,24 +12,28 @@ public class Headers {
     DataFormatter formatter = new DataFormatter();
 
     public ArrayList<Integer> getIndexes(String[] columns, XSSFSheet sheet, int _RRI) {
-
         int i = 0;
-        // RowsAndColumns totalRows = new RowsAndColumns();
-        RowsAndColumns instance = new RowsAndColumns();
         ArrayList<Integer> selectedIndexes = new ArrayList<Integer>();
 
-        int totalColumns = instance.getColumnCount(sheet, _RRI);
-        System.out.println("total numbers of columns are: "+ totalColumns);
-        
-        while(i != totalColumns){
+        while(true){
             Object value = formatter.formatCellValue(sheet.getRow(_RRI).getCell(i));
             if(Arrays.asList(columns).contains(value)){
                 selectedIndexes.add(i);
                 Collections.sort(selectedIndexes);
             }
+            if(IsBlank.check(sheet.getRow(_RRI).getCell(i+1))){
+                break;
+            }
             i++;
         }
-        System.out.println("Selected columns are : "+ selectedIndexes);
+        System.out.println("Selected columns : "+ selectedIndexes);
+        System.out.println();
         return selectedIndexes;
     }
+
+    // public ArrayList<Integer> getIndexes(String[] columns, XSSFSheet sheet, Integer[] _RRIs) {
+    //     return null;
+
+    // }
+ 
 }

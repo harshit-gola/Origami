@@ -37,6 +37,7 @@ public class Op_ClassVar {
     }    
 
     public Boolean setClassVariable(ArrayList<JobRates> classCodes) throws IOException{
+        System.out.println("Setting up class variables ...");
         Headers header = new Headers();
         ArrayList<Integer> headers = header.getIndexes(this.column, this.sheet, this._RRI);
         setCellData(headers,classCodes);
@@ -46,19 +47,18 @@ public class Op_ClassVar {
     
     private void setCellData(ArrayList<Integer> headers, ArrayList<JobRates> classCodes){
         Iterator<Row> rIterator = this.sheet.rowIterator();
-        IsBlank isBlank = new IsBlank();
 
-        boolean i = true;
+        int i = 0;
         
         while(rIterator.hasNext()){
-            while(i){
+            while(i != this._RRI+1){
                 rIterator.next();
-                i = false;
+                i++;
             }
             Row row = rIterator.next();
             Iterator<Integer> header = headers.iterator();
 
-            if(!isBlank.check(row.getCell(this._CVI))){
+            if(!IsBlank.check(row.getCell(this._CVI))){
                 setClassVariables(row, header, classCodes);
             } else {
                 break;  

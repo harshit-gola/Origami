@@ -60,7 +60,7 @@ public class C_JobProgram {
             }
         }
         try {
-            FileOutputStream out = new FileOutputStream(new File("C:/Users/hagola/Documents/Origami/rating/src/data/KS State/Output/" + Constants.CURRENT_STATE + "Job PRogram.xlsx"));
+            FileOutputStream out = new FileOutputStream(new File("C:/Users/hagola/Documents/Origami/rating/src/data/States/Output/" + Constants.CURRENT_STATE + "Job PRogram.xlsx"));
             workbook.write(out);
             System.out.println("Job Program Excel Generated...");
             out.close();

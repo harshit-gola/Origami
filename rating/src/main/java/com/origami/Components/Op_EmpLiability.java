@@ -38,6 +38,7 @@ public class Op_EmpLiability {
     }
 
     public ArrayList<EmpLiaLimit> getLimits() throws IOException{
+        System.out.println("Getting emp liability limits ...");
         Headers header = new Headers();
         ArrayList<Integer> headers = header.getIndexes(this.column, this.sheet, this._RRI);
         if(setCellData(headers)){
@@ -50,19 +51,18 @@ public class Op_EmpLiability {
 
     private Boolean setCellData(ArrayList<Integer> headers){
         Iterator<Row> rIterator = this.sheet.rowIterator();
-        IsBlank isBlank = new IsBlank();
-
-        boolean i = true;
+        
+        int i = 0;
         
         while(rIterator.hasNext()){
-            while(i){
+            while(i != this._RRI+1){
                 rIterator.next();
-                i = false;
+                i++;
             }
             Row row = rIterator.next();
             Iterator<Integer> header = headers.iterator();
 
-            if(!isBlank.check(row.getCell(this._CVI))){
+            if(!IsBlank.check(row.getCell(this._CVI))){
                 cellDataList.add(getEmpLiaLimits(row, header));    
             } else {
                 break;  

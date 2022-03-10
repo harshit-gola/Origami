@@ -47,8 +47,7 @@ public class ExtractStateValues {
 
     private Boolean setCellData(ArrayList<Integer> headers){
         Iterator<Row> rIterator = this.sheet.rowIterator();
-        IsBlank isBlank = new IsBlank();
-
+        
         boolean i = true;
         
         while(rIterator.hasNext()){
@@ -59,7 +58,7 @@ public class ExtractStateValues {
             Row row = rIterator.next();
             Iterator<Integer> header = headers.iterator();
 
-            if(!isBlank.check(row.getCell(this._CVI))){
+            if(!IsBlank.check(row.getCell(this._CVI))){
                 dCellDataList.add(getASATestClassTableVal(row, header));    
             } else {
                 break;  

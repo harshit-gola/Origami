@@ -71,7 +71,7 @@ public class C_EmpLiability {
             }
         }
         try {
-            FileOutputStream out = new FileOutputStream(new File("C:/Users/hagola/Documents/Origami/rating/src/data/KS State/Output/" + Constants.CURRENT_STATE + " Emp-Liability-Limits.xlsx"));
+            FileOutputStream out = new FileOutputStream(new File("C:/Users/hagola/Documents/Origami/rating/src/data/States/Output/" + Constants.CURRENT_STATE + " Emp-Liability-Limits.xlsx"));
             workbook.write(out);
             System.out.println("Emp Liability Excel Generated...");
             out.close();

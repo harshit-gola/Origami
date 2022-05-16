@@ -9,8 +9,9 @@ public class App
 {
     public static void main( String[] args ) throws IOException {
         System.out.println( "Hello World!" );
-
         Controller.perform();
+        // Common.run();
+        System.out.println( "Completed !!!");
     }
 
 }
